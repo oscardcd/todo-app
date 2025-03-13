@@ -97,11 +97,10 @@
         }
       }
     }
-<<<<<<< Updated upstream
+
   },
   "cli": {
     "analytics": false
-=======
->>>>>>> Stashed changes
+
   }
 }
