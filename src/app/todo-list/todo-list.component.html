@@ -29,10 +29,10 @@
       @for(task of tasks; track task){
       <tr>
         <td class="w-25" >
-          <strong>{{ task.title }}</strong>
+          <strong>{{ task.titulo }}</strong>
         </td>
         <td>
-          <p>{{ task.description }}</p>
+          <p>{{ task.descripcion }}</p>
         </td>
         <td>
           <input
@@ -40,7 +40,7 @@
             type="checkbox"
             id="check1"
             (change)="toggleTaskCompletion(task.id)"
-            [checked]="task.completed"
+            [checked]="task.completada"
           />
         </td>
         <td>
