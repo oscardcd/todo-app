@@ -1,0 +1,55 @@
+<section class="container mt-5 text-center text-md-left">
+  <h2>Lista de Tareas</h2>
+  <div class="btn-group w-75">
+    <input
+      class="form-control w-25 me-2"
+      [(ngModel)]="newTaskTitle"
+      placeholder="Título Tarea"
+    />
+
+    <input
+      class="form-control w-50 me-2"
+      [(ngModel)]="newTaskDescription"
+      placeholder="Descripción de la tarea"
+    />
+    <button class="btn btn-outline-primary rounded-pill" (click)="addTask()">
+      Agregar
+    </button>
+  </div>
+  <table class="table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Estado</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(task of tasks; track task){
+      <tr>
+        <td class="w-25" >
+          <strong>{{ task.title }}</strong>
+        </td>
+        <td>
+          <p>{{ task.description }}</p>
+        </td>
+        <td>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="check1"
+            (change)="toggleTaskCompletion(task.id)"
+            [checked]="task.completed"
+          />
+        </td>
+        <td>
+          <button class="btn" (click)="removeTask(tasks.indexOf(task))"><i class="bi bi-trash" ></i> ❌</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  
+</section>
