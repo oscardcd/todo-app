@@ -8,30 +8,26 @@ import { TodoService } from '../core/services/todo.service';
   imports: [FormsModule],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css',
-  standalone: true
+  // standalone: true
 })
-
 export class TodoListComponent {
-
-  tasks:TodoModel[] = [];
+  tasks: TodoModel[] = [];
   newTaskTitle: String = '';
   newTaskDescription: string = '';
-  
-  constructor(private todoService: TodoService) { }
 
-  ngOnInit():void{
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
     this.loadTodos();
   }
 
   loadTodos(): void {
-    this.todoService.getTodos().
-    // forEach(value=> value.map((data) => this.tasks.push(data)));
-    subscribe(
+    this.todoService.getTodos().subscribe(
       (data) => {
         this.tasks = data;
       },
       (error) => {
-        console.error('Error al cargar las tareas:', error);
+        console.error('Error loading todos', error);
       }
     );
   }
@@ -39,24 +35,27 @@ export class TodoListComponent {
   addTask() {
     if (this.newTaskTitle.trim() !== '') {
       const newTask: TodoModel = {
-        id: this.tasks.length + 1, 
+        id: this.tasks.length + 1,
         titulo: this.newTaskTitle.trim(),
         descripcion: this.newTaskDescription.trim(),
-        completada: false
+        completada: false,
       };
       this.todoService.createTodo(newTask).subscribe((data) => {
-
-        this.tasks.push(newTask);
+        this.tasks.push(data);
       });
       this.newTaskTitle = '';
-      this.newTaskDescription = ''; 
+      this.newTaskDescription = '';
     }
   }
 
   toggleTaskCompletion(taskId: number) {
-    const task = this.tasks.find(task => task.id === taskId);
+    const task = this.tasks.find((task) => task.id === taskId);
     if (task) {
+      
       task.completada = !task.completada;
+      this.todoService.updateTodo(taskId, task).subscribe(() => {
+        
+      });
     }
   }
 

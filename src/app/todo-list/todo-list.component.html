@@ -1,20 +1,25 @@
 <section class="container mt-5 text-center text-md-left">
   <h2>Lista de Tareas</h2>
-  <div class="btn-group w-75">
-    <input
-      class="form-control w-25 me-2"
-      [(ngModel)]="newTaskTitle"
-      placeholder="Título Tarea"
-    />
-
-    <input
-      class="form-control w-50 me-2"
-      [(ngModel)]="newTaskDescription"
-      placeholder="Descripción de la tarea"
-    />
-    <button class="btn btn-outline-primary rounded-pill" (click)="addTask()">
-      Agregar
-    </button>
+  <div>
+    <form class="btn-group w-75" (submit)="addTask()">
+      <input
+        type="text"
+        class="form-control w-25 me-2"
+        [(ngModel)]="newTaskTitle"
+        placeholder="Título Tarea"
+        name="newTaskTitle"
+      />
+      <input
+        type="text"
+        class="form-control w-50 me-2"
+        [(ngModel)]="newTaskDescription"
+        placeholder="Descripción de la tarea"
+        name="newTaskDescription"
+      />
+      <button class="btn btn-outline-primary rounded-pill" type="submit">
+        Agregar
+      </button>
+    </form>
   </div>
   <table class="table table-striped mt-5">
     <thead>
@@ -28,7 +33,7 @@
     <tbody>
       @for(task of tasks; track task){
       <tr>
-        <td class="w-25" >
+        <td class="w-25">
           <strong>{{ task.titulo }}</strong>
         </td>
         <td>
@@ -44,12 +49,12 @@
           />
         </td>
         <td>
-          <button class="btn" (click)="removeTask(tasks.indexOf(task))"><i class="bi bi-trash" ></i> ❌</button>
+          <button class="btn" (click)="removeTask(tasks.indexOf(task))">
+            <i class="bi bi-trash"></i> ❌
+          </button>
         </td>
       </tr>
       }
     </tbody>
   </table>
-
-  
 </section>

@@ -1,24 +1,42 @@
 import { Injectable } from '@angular/core';
 import { TodoModel } from '../models/todo.model';
 import { Observable } from 'rxjs/internal/Observable';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
-  private apiUrl = 'http://localhost:5144/api/ToDo'; 
+  private apiUrl = '/api/ToDo';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTodos(): Observable<TodoModel[]> {
-    return this.http.get<TodoModel[]>(this.apiUrl);
+  // var response=  this.http.get<TodoModel[]>(this.apiUrl);
+
+  //   return response
+
+  return this.http.get(this.apiUrl, {headers:{ 'ngrok-skip-browser-warning': 'true',}, responseType: 'text' })
+  .pipe(
+    map(response => {
+      try {
+        // Try to parse the response as JSON
+        return JSON.parse(response);
+      } catch (e) {
+        // If parsing fails, handle the HTML response
+        console.error('Received HTML response:', response);
+        throw new Error('Server returned an HTML response instead of JSON.');
+      }
+    }),
+    catchError((error: HttpErrorResponse) => {
+      console.error('HTTP error:', error);
+      return throwError('Failed to load todos.');
+    })
+  );
   }
 
-  // Obtener una tarea por ID
-  getTodoById(id: number): Observable<TodoModel> {
-    return this.http.get<TodoModel>(`${this.apiUrl}/${id}`);
-  }
 
   // Crear una nueva tarea
   createTodo(todo: TodoModel): Observable<TodoModel> {
