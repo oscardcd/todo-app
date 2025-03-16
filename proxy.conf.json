@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://1947-181-32-149-94.ngrok-free.app/",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
