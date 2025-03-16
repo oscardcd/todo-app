@@ -60,6 +60,9 @@ export class TodoListComponent {
   }
 
   removeTask(index: number) {
-    this.tasks.splice(index, 1);
+    
+    this.todoService.deleteTodo(index).subscribe(() => {
+      this.tasks.splice(index, 1);
+    });
   }
 }
