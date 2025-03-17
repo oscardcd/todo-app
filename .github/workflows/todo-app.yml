@@ -27,19 +27,11 @@ jobs:
       - name: Build Angular App
         run: npm run build:prod
 
-      - name: Verify Build Output
-        run: |
-          echo "Listing dist directory:"
-          ls -la dist
-          echo "Listing todo-app/browser directory:"
-          ls -la dist/todo-app/browser || echo "Folder not found!"
-
       - name: Upload Artifact
-        if: success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3  # Ensure this action is available and correct
         with:
           name: angular-build
-          path: dist/todo-app/browser
+          path: ./dist/todo-app/browser
           retention-days: 1
 
   deploy:
@@ -59,10 +51,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: angular-build
-          path: dist/todo-app/browser
-
-      - name: Verify Downloaded Files
-        run: ls -la dist/todo-app/browser || echo "Downloaded folder not found!"
+          path: ./dist
 
       - name: Deploy to GitHub Pages
         id: deployment
