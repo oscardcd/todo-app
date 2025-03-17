@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  { path: 'todos', component: TodoListComponent },
+  { path: 'todos', component: AppComponent },
   { path: '', redirectTo: '/todos', pathMatch: 'full' },
 ];
