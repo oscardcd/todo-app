@@ -1,9 +1,7 @@
-
 name: Build and Deploy
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - master
@@ -12,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -21,34 +19,40 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm i
+        run: npm ci
 
       - name: Run tests
         run: npm run test:headless
 
-      - name: Build
+      - name: Build Angular App
         run: npm run build:prod
 
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          path: ./dist/todo-app/browser
-          retention-days: 0
+          name: angular-build
+          path: ./dist/angular_deploy/browser
+          retention-days: 1
 
   deploy:
     needs: build
+    runs-on: ubuntu-latest
 
     permissions:
       pages: write
       id-token: write
-    
+
     environment:
-      name: 'github-pages'
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
-    runs-on: ubuntu-latest
 
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: angular-build
+          path: ./dist
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2.0.4
+        uses: actions/deploy-pages@v2
