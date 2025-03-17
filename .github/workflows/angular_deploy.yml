@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: angular-build
-          path: ./dist/angular_deploy/browser
+          path: ./dist/todo-app/browser
           retention-days: 1
 
   deploy:
