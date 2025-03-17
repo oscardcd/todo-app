@@ -8,7 +8,7 @@ import { TodoService } from '../core/services/todo.service';
   imports: [FormsModule],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css',
-  // standalone: true
+  standalone: true
 })
 export class TodoListComponent {
   tasks: TodoModel[] = [];
