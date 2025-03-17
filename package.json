@@ -9,9 +9,7 @@
     "copy-not-found": "copyfiles -f ./src/404.html ./docs/browser",
     "build:prod": "ng build --base-href=./ && npm run copy-not-found",
     "test:headless": "ng test --browsers=ChromeHeadless --watch=false",
-    "test": "ng test",
-    "serve:ssr:todo-app": "node dist/todo-app/server/server.mjs"
-  },
+    "test": "ng test"  },
   "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",

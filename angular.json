@@ -30,12 +30,8 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
+           
           },
           "configurations": {
             "production": {
@@ -61,21 +57,7 @@
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "options": {
-            "proxyConfig": "proxy.conf.json"
-          },
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "todo-app:build:production"
-            },
-            "development": {
-              "buildTarget": "todo-app:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
+       
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
