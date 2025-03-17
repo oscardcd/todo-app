@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs/todo-app",
+            "outputPath": "docs",
             "baseHref": "/todo-app/",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -51,7 +51,7 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "optimization": false,
