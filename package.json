@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "copy-not-found": "copyfiles -f ./src/404.html ./dist/todo-app/browser",
+    "copy-not-found": "copyfiles -f ./src/404.html ./docs/browser",
     "build:prod": "ng build --base-href=./ && npm run copy-not-found",
     "test:headless": "ng test --browsers=ChromeHeadless --watch=false",
     "test": "ng test",

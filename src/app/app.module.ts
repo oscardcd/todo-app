@@ -8,7 +8,6 @@ import { HeadersInterceptor } from './core/interceptors/headers.interceptor';
 
 @NgModule({
   imports: [BrowserModule,FormsModule],
-//   bootstrap: [AppComponent],
   providers: [BrowserModule, provideHttpClient(),{
     provide: HTTP_INTERCEPTORS,
     useClass: HeadersInterceptor,
