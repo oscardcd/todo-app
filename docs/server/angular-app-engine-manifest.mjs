@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/todo-app',
+  basePath: '.',
   supportedLocales: {
   "en-US": ""
 },

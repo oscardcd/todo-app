@@ -2,13 +2,13 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '/todo-app/',
+  baseHref: './',
   locale: undefined,
   routes: undefined,
   entryPointToBrowserMapping: {},
   assets: {
-    'index.csr.html': {size: 988, hash: '14bbc6407e1b41cb403b8c38f81a3e9a40093c313f98b775cdf91ebd8d08683a', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1217, hash: '0e995c05c4931a1f6772c2e1d4fffb108c5d08e23b5650f72dc15b5820dceba2', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 980, hash: 'cbb55d2c561ba72590a72311f10cf353b511cf3c14334fcdf5f62146612b284f', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1209, hash: '46011c74b5304ca9b5bbde37593020ed8a8e56531646b9b2fbbc4cff9d5cb775', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-32DGMBZE.css': {size: 159, hash: 'yw15ZFrMsZ4', text: () => import('./assets-chunks/styles-32DGMBZE_css.mjs').then(m => m.default)}
   },
 };
