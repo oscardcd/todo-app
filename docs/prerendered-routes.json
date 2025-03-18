@@ -1,6 +1,0 @@
-{
-  "routes": {
-    "/todo-app": {},
-    "/todo-app/todos": {}
-  }
-}
