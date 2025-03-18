@@ -8,9 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test:headless": "ng test --browsers=ChromeHeadless --watch=false",
     "test": "ng test",
-    "serve:ssr:todo-app": "node dist/todo-app/server/server.mjs",
-    "copy-not-found": "copyfiles -f ./src/404.html ./dist/todo-app/browser",
-    "build:prod": "ng build --base-href=./dist/todo-app &amp;&amp; npm run copy-not-found"
+    "build-prod": "ng build --configuration production",
+    "deploy": "firebase deploy --only hosting",
+    "deploy-all": "npm run build-prod && npm run deploy"
+
   },
   "private": true,
   "dependencies": {

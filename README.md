@@ -1,4 +1,3 @@
-
 # todo-app
 this is an Angular app for todo List management
 
@@ -13,8 +12,10 @@ To start a local development server, run:
 ```bash
 ng serve
 ```
+<!-- This command starts the development server on port 4200 -->
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+<!-- The application will automatically reload on code changes -->
 
 ## Code scaffolding
 
@@ -23,12 +24,14 @@ Angular CLI includes powerful code scaffolding tools. To generate a new componen
 ```bash
 ng generate component component-name
 ```
+<!-- Replace 'component-name' with the desired name of your component -->
 
 For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
 ```bash
 ng generate --help
 ```
+<!-- This command provides a list of all available schematics -->
 
 ## Building
 
@@ -37,6 +40,7 @@ To build the project run:
 ```bash
 ng build
 ```
+<!-- This command compiles the project and stores the build artifacts in the 'dist/' directory -->
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
@@ -47,6 +51,7 @@ To execute unit tests with the [Karma](https://karma-runner.github.io) test runn
 ```bash
 ng test
 ```
+<!-- This command runs unit tests using the Karma test runner -->
 
 ## Running end-to-end tests
 
@@ -55,10 +60,12 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
+<!-- This command runs end-to-end tests -->
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<!-- This link provides detailed information on Angular CLI commands -->
 
